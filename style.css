@@ -1,0 +1,180 @@
+:root {
+    --bg-light: #f7f7f7;
+    --bg-dark: #181818;
+    --text-light: #222;
+    --text-dark: #eee;
+    --primary: #007bfc;
+    --secondary: #222;
+    --card-bg-light: #fff;
+    --card-bg-dark: #232323;
+}
+
+html[data-theme="light"] {
+    background: var(--bg-light);
+    color: var(--text-light);
+}
+
+html[data-theme="dark"] {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0; padding: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+header {
+    background: var(--secondary);
+    color: #fff;
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
+    position: relative;
+}
+
+nav {
+    margin-top: 10px;
+}
+nav a {
+    color: #fff;
+    margin: 0 0.7rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+nav a:hover {
+    color: var(--primary);
+}
+
+#theme-toggle {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #fff;
+    z-index: 10;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+}
+
+section {
+    background: var(--card-bg-light);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: background 0.3s, color 0.3s;
+}
+
+html[data-theme="dark"] section {
+    background: var(--card-bg-dark);
+}
+
+h2 {
+    color: var(--primary);
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.skills-list li {
+    background: var(--primary);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+    transition: background 0.3s;
+}
+.skills-list li:hover {
+    background: #005bb5;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.project-card {
+    flex: 1 1 260px;
+    background: var(--bg-light);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.03);
+    transition: box-shadow 0.3s, background 0.3s;
+}
+html[data-theme="dark"] .project-card {
+    background: var(--bg-dark);
+}
+
+.project-card:hover {
+    box-shadow: 0 4px 14px rgba(0,123,252,0.08);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.resume-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 0.8rem 1.6rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: background 0.3s;
+}
+.resume-btn:hover {
+    background: #005bb5;
+}
+
+.blog-post {
+    background: var(--bg-light);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.03);
+    transition: background 0.3s;
+}
+html[data-theme="dark"] .blog-post {
+    background: var(--bg-dark);
+}
+.blog-post h3 { margin: 0 0 0.3rem 0; }
+.blog-date { font-size: 0.9rem; color: #888; margin-bottom: 0.3rem; }
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--secondary);
+    color: #fff;
+    margin-top: 2rem;
+    transition: background 0.3s;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 700px) {
+    main, section { padding: 1rem; }
+    .projects { flex-direction: column; }
+    .skills-list { flex-direction: column; }
+}
